@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>المجتمع | ستاديكس التعليمية</title>
+  <link href="IMAGES/موال.png" rel="icon">  
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;900&family=Tajawal:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+  <style>
+    :root{
+      --primary: #0077FF;
+      --secondary: #00D4C8;
+      --dark: #0F172A;
+      --light: #F8FAFC;
+      --gradient: linear-gradient(135deg, #0077FF, #00D4C8);
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:'Cairo',sans-serif;
+      background:var(--light);
+      color:#1E293B;
+      line-height:1.8;
+    }
+
+    /* الهيدر الفاخر */
+    header{
+      background:var(--dark);
+      padding:20px 40px;
+      position:fixed;
+      top:0;left:0;right:0;
+      z-index:999;
+      box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    }
+    .header-inner{
+      max-width:1400px;margin:auto;display:flex;justify-content:space-between;align-items:center;
+    }
+    .logo img{height:80px;filter:drop-shadow(0 0 20px rgba(0,212,200,0.5));transition:0.4s;}
+    .logo img:hover{transform:scale(1.1) rotate(5deg);}
+
+    nav ul{
+      display:flex;gap:50px;
+    }
+    nav ul li a{
+      color:#fff;font-weight:700;font-size:18px;position:relative;
+      text-shadow:0 2px 10px rgba(0,0,0,0.5);
+    }
+    nav ul li a::after{
+      content:'';position:absolute;bottom:-10px;left:50%;width:0;height:4px;
+      background:var(--secondary);border-radius:2px;transition:0.4s;
+      transform:translateX(-50%);
+    }
+    nav ul li a:hover::after{width:100%;}
+
+    /* البطل */
+    .hero{
+      margin-top:120px;text-align:center;
+    }
+    .hero img{
+      width:100%;max-width:1200px;border-radius:32px;
+      box-shadow:0 40px 100px rgba(0,119,255,0.3);
+      transform:translateY(-20px);
+    }
+
+    main{max-width:1200px;margin:100px auto;padding:0 20px;}
+
+    .join-section{
+      text-align:center;margin-bottom:100px;
+    }
+    .badge{
+      display:inline-block;background:var(--gradient);color:#fff;padding:10px 30px;
+      border-radius:50px;font-size:1.1rem;font-weight:700;margin-bottom:20px;
+      box-shadow:0 10px 30px rgba(0,119,255,0.3);
+    }
+    h1{
+      font-family:'Tajawal',sans-serif;font-size:4.5rem;font-weight:900;
+      background:linear-gradient(90deg,#0077FF,#00D4C8,#00FF88);
+      -webkit-background-clip:text;background-clip:text;
+      -webkit-text-fill-color:transparent;margin:20px 0;
+      text-shadow:0 10px 30px rgba(0,0,0,0.1);
+    }
+    .highlight{
+      background:var(--gradient);color:#fff;padding:5px 20px;border-radius:50px;
+      font-weight:900;display:inline-block;margin:20px 0;
+    }
+
+    /* النموذج الأسطوري */
+    .join-form{
+      background:#fff;border-radius:40px;
+      padding:70px 90px;box-shadow:0 50px 150px rgba(0,119,255,0.2);
+      position:relative;overflow:hidden;margin-top:80px;
+    }
+    .join-form::before{
+      content:'';position:absolute;top:0;left:0;right:0;height:8px;
+      background:var(--gradient);border-radius:40px 40px 0 0;
+    }
+
+    .form-row{
+      display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:35px;
+    }
+    .input-group{
+      position:relative;
+    }
+    .input-group i{
+      position:absolute;left:25px;top:50%;transform:translateY(-50%);
+      font-size:1.5rem;color:var(--primary);z-index:2;
+    }
+    .input-group input,
+    .input-group select{
+      width:100%;padding:22px 25px 22px 70px;
+      border:3px solid #E2E8F0;border-radius:20px;
+      font-size:1.15rem;background:#FBFCFF;
+      transition:all 0.4s;font-family:'Cairo',sans-serif;
+      box-shadow:0 5px 20px rgba(0,0,0,0.05);
+    }
+    .input-group input:focus,
+    .input-group select:focus{
+      outline:none;border-color:var(--primary);
+      background:#fff;transform:translateY(-5px);
+      box-shadow:0 20px 50px rgba(0,119,255,0.2);
+    }
+
+    /* السلايدر الأنيق */
+    .slider-container{
+      background:#F1F5F9;padding:30px;border-radius:24px;
+      text-align:center;margin:40px 0;box-shadow:inset 0 10px 30px rgba(0,0,0,0.05);
+    }
+    .slider-value{
+      font-size:3rem;font-weight:900;color:var(--primary);
+      font-family:'Tajawal';margin:15px 0;
+    }
+
+    /* زر الإرسال الملكي */
+    .submit-btn{
+      background:var(--gradient);color:#fff;padding:22px 100px;
+      border:none;border-radius:60px;font-size:1.7rem;font-weight:900;
+      cursor:pointer;transition:0.6s;margin:50px auto 0;display:block;
+      box-shadow:0 20px 60px rgba(0,119,255,0.4);
+      position:relative;overflow:hidden;
+    }
+    .submit-btn::before{
+      content:'';position:absolute;top:50%;left:50%;width:0;height:0;
+      background:rgba(255,255,255,0.3);border-radius:50%;
+      transform:translate(-50%,-50%);transition:0.8s;
+    }
+    .submit-btn:hover::before{
+      width:400px;height:400px;
+    }
+    .submit-btn:hover{
+      transform:translateY(-10px) scale(1.05);
+      box-shadow:0 30px 80px rgba(0,119,255,0.6);
+    }
+
+    @media (max-width:768px){
+      .form-row{grid-template-columns:1fr;}
+      h1{font-size:3rem;}
+      .join-form{padding:50px 30px;}
+      .submit-btn{padding:20px 60px;font-size:1.5rem;}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <img src="IMAGES/موال.png" alt="ستاديكس"/>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="1.html">الرئيسية</a></li>
+          <li><a href="2.html">الدراسة</a></li>
+          <li><a href="3.html">المجتمع</a></li>
+          <li><a href="4.html">الكتاب</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" alt="مجتمع ستاديكس">
+  </div>
+
+  <main>
+    <section class="join-section">
+      <div class="badge">انضم لأكثر من 87,342 طالب ناجح</div>
+      <h1>سجّل دلوقتي وغيّر مستقبلك</h1>
+      <p class="highlight">أول 1000 طالب هياخدوا كورس مجاني كامل!</p>
+
+      <div class="join-form">
+        <form id="whatsappForm">
+          <div class="form-row">
+            <div class="input-group">
+              <i class="fas fa-crown"></i>
+              <input type="text" id="fullName" placeholder="اسمك الملكي" required>
+            </div>
+            <div class="input-group">
+              <i class="fab fa-whatsapp" style="color:#25D366;"></i>
+              <input type="tel" id="phone" placeholder="رقم الواتساب" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="input-group">
+              <i class="fas fa-envelope-open-text"></i>
+              <input type="email" id="email" placeholder="بريدك الإلكتروني" required>
+            </div>
+            <div class="input-group">
+              <i class="fas fa-user-graduate"></i>
+              <select id="stage" required>
+                <option value="" disabled selected>المرحلة الدراسية</option>
+                <option>إعدادي</option>
+                <option>ثانوي عام</option>
+                <option>ثانوي أزهري</option>
+                <option>جامعي</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="input-group">
+              <i class="fas fa-flask"></i>
+              <select id="section" required>
+                <option value="" disabled selected>الشعبة</option>
+                <option>علمي علوم</option>
+                <option>علمي رياضة</option>
+                <option>أدبي</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <i class="fas fa-trophy"></i>
+              <select id="goal" required>
+                <option value="" disabled selected>هدفك الأسطوري</option>
+                <option>تنسيق طب أو هندسة</option>
+                <option>مجموع 98%+</option>
+                <option>أكون الأول على الجمهورية</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="slider-container">
+            <label style="font-size:1.4rem;font-weight:900;color:var(--dark);">قيّم مستواك الحالي من 10</label>
+            <input type="range" min="1" max="10" value="6" id="levelSlider" style="height:16px;border-radius:50px;">
+            <div class="slider-value">6 / 10</div>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            ابدأ رحلتك الأسطورية الآن
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const slider = document.getElementById('levelSlider');
+    const sliderValue = document.querySelector('.slider-value');
+    slider.addEventListener('input', () => {
+      sliderValue.textContent = slider.value + ' / 10';
+    });
+
+    document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('fullName').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const stage = document.getElementById('stage').options[document.getElementById('stage').selectedIndex].text;
+      const section = document.getElementById('section').options[document.getElementById('section').selectedIndex].text;
+      const goal = document.getElementById('goal').options[document.getElementById('goal').selectedIndex].text;
+      const level = slider.value;
+
+      const adminNumber = "201278288599"; // ← رقمك
+
+      const message = `
+*طالب جديد انضم لعيلة ستاديكس*
+
+*الاسم*: ${name}
+*الواتساب*: ${phone}
+*الإيميل*: ${email}
+
+*المرحلة*: ${stage}
+*الشعبة*: ${section}
+*الهدف*: ${goal}
+*مستواه الحالي*: ${level}/10
+
+*التاريخ*: ${new Date().toLocaleString('ar-EG')}
+
+يلا نرحب بيه ونكلمه فورًا`;
+
+      const whatsappURL = `https://wa.me/${adminNumber}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappURL, '_blank');
+
+      // تأثير نجاح
+      alert("تم فتح الواتساب بنجاح!\nكل البيانات وصلتك منسقة بأجمل شكل");
+      this.reset();
+      sliderValue.textContent = '6 / 10';
+    });
+  </script>
+</body>
+</html>

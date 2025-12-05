@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ستاديكس  - STADIX</title>
+  <link href="IMAGES/موال.png" rel="icon">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* الهيرو */
+    .hero {
+      background: #0f172a;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px 40px;
+      position: relative;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+    .logo img { height: 150px; }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 45px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 18px;
+      position: relative;
+    }
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0; height: 2px;
+      background: white;
+      bottom: -6px; right: 0;
+      transition: 0.3s;
+    }
+    nav ul li a:hover::after { width: 100%; }
+
+    .social-icons a {
+      color: white;
+      font-size: 24px;
+      margin-left: 18px;
+      opacity: 0.85;
+      transition: 0.3s;
+    }
+    .social-icons a:hover { opacity: 1; transform: translateY(-3px); }
+
+    .hero-content {
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .hero-content h1 {
+      font-size: 4.8rem;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+    .hero-content p {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      margin-bottom: 40px;
+    }
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 14px 40px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+      border: 2px solid rgba(255,255,255,0.4);
+      color: white;
+      background: transparent;
+    }
+    .btn:hover {
+      background: white;
+      color: #8C7B6D;
+      transform: translateY(-4px);
+    }
+
+    /* الأقسام العادية */
+    section {
+      padding: 100px 40px;
+    }
+    .section-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .section-desc {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 60px;
+      color: #555;
+      font-size: 1.15rem;
+    }
+
+    /* منصة ستاديكس التعليمية */
+    .about-platform {
+      display: flex;
+      align-items: center;
+      gap: 80px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+    .about-text .btn {
+      display: inline-block;
+      margin-top: 30px;
+    }
+    .about-img {
+      flex: 1;
+      min-width: 300px;
+    }
+    .about-img img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    /* لماذا تختارنا */
+    .why-choose {
+      background: #f8f9fa;
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .why-card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    .why-card img {
+      width: 100%;
+      border-radius: 16px;
+      margin-bottom: 20px;
+    }
+
+    /* خدماتنا */
+    .services {
+      background: #e3f2fd;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 60px auto 0;
+    }
+    .service-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .service-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .service-card h3 {
+      padding: 25px 20px 15px;
+      font-size: 1.6rem;
+    }
+    .service-card p {
+      padding: 0 25px 30px;
+      color: #555;
+    }
+
+    /* نموذج التواصل */
+    .contact-form {
+      background: #0d47a1;
+      color: white;
+      text-align: center;
+    }
+    .contact-form .section-title { color: white; }
+    .form-container {
+      max-width: 500px;
+      margin: 50px auto 0;
+      background: rgba(255,255,255,0.1);
+      padding: 40px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+    }
+    .form-group {
+      margin-bottom: 25px;
+      text-align: right;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+    }
+    .submit-btn {
+      background: #2196f3;
+      color: white;
+      padding: 14px 40px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .submit-btn:hover {
+      background: #1976d2;
+      transform: translateY(-3px);
+    }
+
+    /* الفوتر */
+    footer {
+      background: #111;
+      color: #aaa;
+      padding: 60px 40px 30px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto 40px;
+    }
+    .footer-col h3 {
+      color: white;
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+    }
+    .footer-col a {
+      color: #aaa;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .footer-col a:hover { color: white; }
+    .social-footer a {
+      font-size: 26px;
+      margin-left: 15px;
+      color: #aaa;
+    }
+    .social-footer a:hover { color: white; }
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid #333;
+      font-size: 0.9rem;
+    }
+
+    /* متجاوب */
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 3.2rem; }
+      nav ul { gap: 20px; font-size: 16px; }
+      .about-platform { flex-direction: column; text-align: center; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- الهيرو -->
+  <section class="hero">
+    <header>
+      <div class="logo">
+        <img src="IMAGES/موال.png" alt="ستاديكس">
+      </div>
+      <nav>
+        <ul>
+          <li><a href="">الرئيسية</a></li>
+          <li><a href="3.html">المجتمع</a></li>
+          <li><a href="2.html">الدراسة</a></li>
+          <li><a href="4.html">الكتاب</a></li>
+        </ul>
+      </nav>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+      </div>
+    </header>
+
+    <div class="hero-content">
+      <h1>تعلم بذكاء مع ستاديكس</h1>
+      <p>منصة تعليمية تجمع بين التقنية الحديثة والكتب المفيدة</p>
+      <div class="hero-buttons">
+        <a href="#" class="btn">انضم الآن</a>
+        <a href="#" class="btn">تصفح الكتب</a>
+      </div>
+    </div>
+
+    <div style="text-align:center; padding-bottom:30px; opacity:0.8; font-size:0.95rem;">
+      جميع الحقوق محفوظة © ستاديكس للتعليم 2025
+    </div>
+  </section>
+
+  <!-- منصة ستاديكس التعليمية -->
+  <section>
+    <h2 class="section-title">منصة ستاديكس التعليمية</h2>
+    <p class="section-desc">نقدم تجربة دراسة متطورة مع مجتمع طلابي نشط وكتب مفيدة</p>
+
+    <div class="about-platform">
+      <div class="about-text">
+        <h3 style="font-size:2rem; margin-bottom:20px;">اكتشف عالم التعلم الذكي</h3>
+        <p style="font-size:1.15rem; line-height:1.8; color:#444;">
+          منصتنا تجمع بين أحدث التقنيات التعليمية ومجتمع طلابي داعم، مع مكتبة ضخمة من الكتب والمواد التعليمية المختارة بعناية.
+        </p>
+        <a href="#" class="btn" style="display:inline-block; margin-top:25px; background:white; color:#8C7B6D;">انضم الآن</a>
+      </div>
+      <div class="about-img">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="طلاب يدرسون">
+      </div>
+    </div>
+  </section>
+
+  <!-- لماذا تختارنا -->
+  <section class="why-choose">
+    <h2 class="section-title">لماذا تختارنا</h2>
+    <p class="section-desc">نركز على أفضل التقنيات التعليمية مع دعم مستمر لمجتمع طلابنا</p>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <img src="IMAGES/photo-84.jpg" alt="المجتمع">
+        <h3>المجتمع</h3>
+        <p>مجتمع طلابي نشط يدعم التعلم والتواصل بين الجميع</p>
+      </div>
+      <div class="why-card">
+        <img src="IMAGES/10-تقنيات-فعالة-للدراسة.jpg" alt="التقنية">
+        <h3>التقنية</h3>
+        <p>نساعدك على إتقان أحدث التقنيات بطريقة سهلة وفعالة</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- خدماتنا -->
+  <section class="services">
+    <h2 class="section-title">خدماتنا التعليمية</h2>
+    <p class="section-desc">نقدم بيئة تعليمية متكاملة مع مجتمع طلابي متفاعل وكتب مفيدة</p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <img src="IMAGES/photo-1624498580014-e2336c721d18.avif" alt="كتب">
+        <h3>مكتبة الكتب</h3>
+        <p>آلاف الكتب الرقمية في مختلف المجالات بجودة عالية</p>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="مجتمع">
+        <h3>مجتمع الطلاب</h3>
+        <p>تواصل مع آلاف الطلاب، شارك الخبرات، وكوّن صداقات تعليمية</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- نموذج التواصل -->
+  <section class="contact-form">
+    <h2 class="section-title">تواصل معنا بسهولة</h2>
+    <p style="margin-bottom:40px; opacity:0.9;">نحن هنا للإجابة على كل استفساراتك</p>
+
+    <div class="form-container">
+      <form>
+        <div class="form-group">
+          <label>الاسم الكامل</label>
+          <input type="text" placeholder="اكتب اسمك هنا" required>
+        </div>
+        <div class="form-group">
+          <label>البريد الإلكتروني *</label>
+          <input type="email" placeholder="اكتب بريدك هنا" required>
+        </div>
+        <div class="form-group">
+          <label>رسالتك *</label>
+          <textarea rows="5" placeholder="اكتب رسالتك هنا" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">إرسال</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- الفوتر -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>تواصل</h3>
+        <p>نحن هنا لدعم رحلتك التعليمية دائمًا</p>
+        <div class="social-footer">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h3>مساعدة</h3>
+        <a href="#">اسئلة شائعة</a>
+        <a href="#">سياسة الخصوصية</a>
+        <a href="#">الشروط والأحكام</a>
+      </div>
+      <div class="footer-col">
+        <h3>روابط</h3>
+        <a href="#">+201278288599</a>
+        <a href="#">marawanreda54@gmail.com</a>
+        <a href="#">ادخل اسمك هنا</a>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2025. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>

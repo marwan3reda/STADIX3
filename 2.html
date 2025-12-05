@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>تقنيات المذاكرة | ستاديكس</title>
+  <link href="IMAGES/موال.png" rel="icon">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;900&family=Tajawal:wght@800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+  <style>
+    :root{
+      --primary: #8B5CF6;      /* بنفسجي فخم */
+      --secondary: #06FFA5;    /* أخضر نعناعي */
+      --dark: #0F0A1F;
+      --light: #F8FAFC;
+      --gray: #94A3B8;
+      --gradient: linear-gradient(135deg, #8B5CF6, #06FFA5);
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:'Cairo',sans-serif;
+      background:var(--light);
+      color:#1E293B;
+      background: radial-gradient(circle at top, rgba(139,92,246,0.15), #F8FAFC);
+    }
+
+    /* الهيدر */
+    header{
+      background:var(--dark);
+      padding:20px 40px;
+      position:fixed;top:0;left:0;right:0;
+      z-index:999;box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    }
+    .header-inner{
+      max-width:1400px;margin:auto;display:flex;
+      justify-content:space-between;align-items:center;
+    }
+    .logo img{height:80px;filter:brightness(1.4);}
+    nav ul{display:flex;gap:50px;}
+    nav ul li a{color:#fff;font-weight:700;font-size:18px;position:relative;}
+    nav ul li a::after{content:'';position:absolute;bottom:-8px;left:50%;width:0;height:4px;background:var(--secondary);transition:0.4s;transform:translateX(-50%);}
+    nav ul li a:hover::after{width:100%;}
+
+    /* الهيرو */
+    .hero{
+      margin-top:120px;text-align:center;padding:100px 20px;
+      background:linear-gradient(rgba(15,10,31,0.95),rgba(15,10,31,0.98)), url('https://images.unsplash.com/photo-1506784365847-bbad939e9335?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover;
+      color:#fff;
+    }
+    .hero h1{
+      font-family:'Tajawal',sans-serif;font-size:4.8rem;font-weight:900;
+      background:linear-gradient(90deg,#8B5CF6,#06FFA5,#00D4FF);
+      -webkit-background-clip:text;background-clip:text;
+      -webkit-text-fill-color:transparent;margin-bottom:20px;
+    }
+    .hero p{font-size:1.5rem;max-width:900px;margin:0 auto 30px;color:#E2E8F0;}
+
+    /* الفلاتر */
+    .filters{
+      max-width:1300px;margin:60px auto;padding:0 20px;
+      display:flex;flex-wrap:wrap;gap:20px;justify-content:center;align-items:center;
+    }
+    .filter-group{
+      background:#fff;padding:14px 28px;border-radius:50px;
+      box-shadow:0 12px 35px rgba(0,0,0,0.1);min-width:220px;
+    }
+    .filter-group label{font-weight:700;margin-left:15px;color:var(--dark);}
+    select{
+      border:none;outline:none;font-size:1.1rem;font-family:'Cairo';cursor:pointer;
+      background:transparent;color:var(--primary);font-weight:600;
+    }
+
+    /* كروت التقنيات */
+    .lessons-grid{
+      max-width:1350px;margin:0 auto 80px;padding:0 20px;
+      display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:40px;
+    }
+    .lesson-card{
+      background:#fff;border-radius:32px;overflow:hidden;
+      box-shadow:0 25px 60px rgba(139,92,246,0.15);transition:0.5s;
+      position:relative;border:2px solid transparent;
+    }
+    .lesson-card:hover{
+      transform:translateY(-22px);box-shadow:0 50px 100px rgba(139,92,246,0.3);
+      border-color:var(--secondary);
+    }
+    .lesson-img{
+      width:100%;height:240px;object-fit:cover;
+    }
+    .subject-tag{
+      position:absolute;top:18px;right:18px;
+      background:var(--gradient);color:#fff;padding:10px 22px;
+      border-radius:50px;font-size:1rem;font-weight:700;
+    }
+    .lesson-content{
+      padding:28px;
+    }
+    .lesson-title{
+      font-size:1.5rem;font-weight:900;margin:15px 0;color:var(--dark);
+    }
+    .lesson-meta{
+      display:flex;justify-content:space-between;align-items:center;color:var(--gray);font-size:1rem;margin:18px 0;
+    }
+    .stars{color:#FFC107;font-size:1.2rem;}
+    .play-btn{
+      background:var(--gradient);color:#fff;padding:16px 40px;
+      border:none;border-radius:50px;font-size:1.3rem;font-weight:700;
+      cursor:pointer;transition:0.4s;width:100%;
+    }
+    .play-btn:hover{
+      transform:scale(1.06);box-shadow:0 20px 40px rgba(139,92,246,0.5);
+    }
+
+    .no-lessons{
+      text-align:center;padding:120px;font-size:1.8rem;color:#94A3B8;
+      grid-column:1/-1;
+    }
+
+    @media (max-width:768px){
+      .hero h1{font-size:3.2rem;}
+      .filters{flex-direction:column;}
+      .filter-group{width:90%;}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <img src="IMAGES/موال.png" alt="ستاديكس"/>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="1.html">الرئيسية</a></li>
+          <li><a href="2.html">الدراسه</a></li>
+          <li><a href="3.html">المجتمع</a></li>
+          <li><a href="4.html">الكتب</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>تقنيات المذاكرة الذكية</h1>
+    <p>اكتشف أقوى الطرق العلمية اللي هتخليك تفهم أسرع · تحفظ أطول · تجيب درجات نهائية بمجهود أقل</p>
+  </section>
+
+  <!-- الفلاتر -->
+  <div class="filters">
+    <div class="filter-group">
+      <label>نوع التقنية:</label>
+      <select id="gradeFilter">
+        <option value="all">كل الأنواع</option>
+        <option value="memory">تقنيات حفظ</option>
+        <option value="focus">تقنيات تركيز</option>
+        <option value="speed">تعلم سريع</option>
+        <option value="habits">بناء عادات</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>المستوى:</label>
+      <select id="sectionFilter">
+        <option value="all">كل المستويات</option>
+        <option value="beginner">مبتدئ</option>
+        <option value="intermediate">متوسط</option>
+        <option value="advanced">متقدم</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- كروت التقنيات -->
+  <div class="lessons-grid" id="lessonsGrid">
+
+    <div class="lesson-card" data-grade="memory" data-section="beginner">
+      <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9f12b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="lesson-img" alt="تقنية فاينمان">
+      <span class="subject-tag">حفظ قوي</span>
+      <div class="lesson-content">
+        <h3 class="lesson-title">تقنية فاينمان - تفهيم أي درس في 20 دقيقة</h3>
+        <div class="lesson-meta">
+          <span>١٥ دقيقة</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <button class="play-btn">ابدأ الآن</button>
+      </div>
+    </div>
+
+    <div class="lesson-card" data-grade="focus" data-section="intermediate">
+      <img src="https://images.unsplash.com/photo-1492968576429-8e5c1b0b12ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="lesson-img" alt="بومودورو">
+      <span class="subject-tag">تركيز</span>
+      <div class="lesson-content">
+        <h3 class="lesson-title">تقنية بومودورو المتطورة - 6 ساعات بتركيز كامل</h3>
+        <div class="lesson-meta">
+          <span>٢٥ دقيقة</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <button class="play-btn">ابدأ الآن</button>
+      </div>
+    </div>
+
+    <div class="lesson-card" data-grade="memory" data-section="advanced">
+      <img src="https://images.unsplash.com/photo-1634119895559-0de2b7d0c6b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="lesson-img" alt="قصر الذاكرة">
+      <span class="subject-tag">حفظ أسطوري</span>
+      <div class="lesson-content">
+        <h3 class="lesson-title">قصر الذاكرة - احفظ 100 معلومة في ساعة</h3>
+        <div class="lesson-meta">
+          <span>٣٠ دقيقة</span>
+          <span class="stars">★★★★★</span>
+        </div>
+        <button class="play-btn">ابدأ الآن</button>
+      </div>
+    </div>
+
+    <!-- تقدر تضيف 100 تقنية بنفس الصيغة -->
+
+  </div>
+
+  <script>
+    const cards = document.querySelectorAll('.lesson-card');
+    document.querySelectorAll('select').forEach(sel => sel.addEventListener('change', filter));
+
+    function filter() {
+      const type = document.getElementById('gradeFilter').value;
+      const level = document.getElementById('sectionFilter').value;
+      let visible = 0;
+
+      cards.forEach(card => {
+        const matchType = type === 'all' || card.dataset.grade === type;
+        const matchLevel = level === 'all' || card.dataset.section === level;
+
+        if (matchType && matchLevel) {
+          card.style.display = 'block';
+          visible++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      if (visible === 0 && !document.querySelector('.no-lessons')) {
+        document.getElementById('lessonsGrid').innerHTML += '<div class="no-lessons">هنضيف التقنية دي قريب جدًا! 🔥</div>';
+      }
+    }
+  </script>
+</body>
+</html>

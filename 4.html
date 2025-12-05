@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مكتبة ستاديكس</title>
+<link href="IMAGES/موال.png" rel="icon">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;900&family=Tajawal:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<style>
+  :root{
+    --bg: #0d1117;
+    --card: #161b22;
+    --text: #e6edf3;
+    --accent: #00d4c8;
+    --accent2: #8b5cf6;
+    --grad: linear-gradient(135deg, #8b5cf6, #00d4c8);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Cairo',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.7;
+  }
+
+  /* الهيدر – نفس الصورة بالظبط */
+  header{
+    position:fixed;top:0;left:0;right:0;
+    background:var(--bg);
+    padding:20px 40px;
+    z-index:1000;
+    border-bottom:1px solid #30363d;
+  }
+  .header-inner{
+    max-width:1500px;margin:auto;
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .logo img{height:78px;filter:drop-shadow(0 0 20px rgba(0,212,200,.6));}
+  nav ul{display:flex;gap:65px;}
+  nav ul li a{
+    color:#e6edf3;font-size:1.35rem;font-weight:700;text-decoration:none;
+    position:relative;padding:8px 0;transition:.3s;
+  }
+  nav ul li a:hover{color:var(--accent);}
+  nav ul li a::after{
+    content:'';position:absolute;bottom:0;left:50%;width:0;height:3px;
+    background:var(--accent);border-radius:3px;transition:.4s;transform:translateX(-50%);
+  }
+  nav ul li a:hover::after{width:100%;}
+
+  main{margin-top:130px;}
+  .hero{
+    text-align:center;padding:130px 20px;
+    background:linear-gradient(rgba(13,17,23,.97),rgba(13,17,23,.99)),
+               url('https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover;
+  }
+  .hero h1{
+    font-family:'Tajawal',sans-serif;
+    font-size:4.5rem;font-weight:900;
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;margin-bottom:20px;
+  }
+  .hero p{font-size:1.6rem;max-width:900px;margin:0 auto;color:#cbd5e1;}
+
+  .container{max-width:1400px;margin:80px auto;padding:20px;}
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
+    gap:40px;
+  }
+  .book{
+    background:var(--card);
+    border-radius:28px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.5);
+    transition:all .5s ease;
+    border:1px solid #30363d;
+  }
+  .book:hover{
+    transform:translateY(-16px);
+    box-shadow:0 30px 80px rgba(0,212,200,.25);
+    border-color:var(--accent);
+  }
+  .cover{
+    height:460px;
+    padding:20px;
+    background:linear-gradient(145deg,#161b22,#0d1117);
+    display:flex;align-items:center;justify-content:center;
+    position:relative;
+  }
+  .cover img{
+    max-height:96%;max-width:90%;
+    border-radius:18px;
+    box-shadow:0 20px 50px rgba(0,0,0,.7);
+    transition:.4s;
+  }
+  .book:hover .cover img{transform:scale(1.05);}
+  .cover::after{
+    content:'PDF مجاني';
+    position:absolute;top:24px;left:24px;
+    background:var(--accent);color:#000;
+    padding:10px 28px;border-radius:50px;
+    font-weight:900;font-size:1.1rem;
+  }
+
+  .info{padding:32px;text-align:center;}
+  .info h3{
+    font-size:1.9rem;color:var(--accent);margin-bottom:12px;font-weight:900;
+  }
+  .info .author{
+    font-size:1.1rem;color:#94a3b8;margin-bottom:16px;display:block;
+  }
+  .info p{
+    font-size:1.18rem;color:#cbd5e1;line-height:1.9;margin-bottom:28px;
+    min-height:80px;
+  }
+  .btn{
+    background:var(--grad);color:#fff;
+    padding:16px 40px;border:none;border-radius:50px;
+    font-size:1.35rem;font-weight:700;cursor:pointer;
+    width:92%;transition:.4s;
+    box-shadow:0 15px 40px rgba(139,92,246,.4);
+  }
+  .btn:hover{
+    background:var(--accent);color:#000;
+    transform:scale(1.07);
+    box-shadow:0 20px 50px rgba(0,212,200,.5);
+  }
+  .btn i{margin-left:12px;}
+
+  footer{
+    text-align:center;padding:80px 20px;
+    color:#64748b;font-size:1.3rem;
+    border-top:1px solid #30363d;
+  }
+
+  @media(max-width:768px){
+    .hero h1{font-size:3.2rem;}
+    nav ul{gap:30px;}
+    nav ul li a{font-size:1.15rem;}
+    .grid{grid-template-columns:1fr;gap:35px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <img src="IMAGES/موال.png" alt="ستاديكس">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="1.html">الرئيسية</a></li>
+        <li><a href="2.html">الدروس</a></li>
+        <li><a href="3.html">الكتب</a></li>
+        <li><a href="4.html">المجتمع</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <h1>مكتبة تقنيات المذاكرة</h1>
+    <p>أفضل 12 كتاب عالمي في التعلم الفعّال والحفظ السريع والتركيز العميق.. كلهم مجانًا وجاهزين للتحميل</p>
+  </div>
+
+  <div class="container">
+    <div class="grid">
+
+      <div class="book">
+        <div class="cover"><img src="IMAGES/c36ecbcf69f6006a862d5904d5d50fbe.png.webp" alt="تعلم كيف تتعلم"></div>
+        <div class="info">
+          <h3>تعلم كيف تتعلم</h3>
+          <span class="author">باربرا أوكلي</span>
+          <p>الكتاب رقم 1 في العالم عن كيفية عمل الدماغ أثناء التعلم + تقنيات علمية مثبتة</p>
+          <button class="btn">تحميل الكتاب <i class="fas fa-download"></i></button>
+        </div>
+      </div>
+
+      <div class="book">
+        <div class="cover"><img src="IMAGES/0aa5f47f5e4ffc2b7f1a908f2d1ec8ac.jpg.webp" alt="اجعل الأشياء لا تُنسى"></div>
+        <div class="info">
+          <h3>اجعل الأشياء لا تُنسى</h3>
+          <span class="author">بيتر براون</span>
+          <p>كيف يعمل الحفظ طويل المدى؟ أقوى الأبحاث العلمية في تاريخ التعليم</p>
+          <button class="btn">تحميل الكتاب <i class="fas fa-download"></i></button>
+        </div>
+      </div>
+
+      <div class="book">
+        <div class="cover"><img src="IMAGES/download.webp" alt="Ultralearning"></div>
+        <div class="info">
+          <h3>Ultralearning</h3>
+          <span class="author">سكوت يانج</span>
+          <p>اللي خلّص منهج MIT في سنة واحدة فقط.. طريقة تعلم أي مهارة في وقت قياسي</p>
+          <button class="btn">تحميل الكتاب <i class="fas fa-download"></i></button>
+        </div>
+      </div>
+
+      <div class="book">
+        <div class="cover"><img src="IMAGES/6026d9af14cc9f0e28229128f9db28f5.png.webp" alt="عادات ذرية"></div>
+        <div class="info">
+          <h3>عادات ذرية</h3>
+          <span class="author">جيمس كلير</span>
+          <p>كيف تبني عادة المذاكرة اليومية بدون ما تحس بالتعب أبدًا</p>
+          <button class="btn">تحميل الكتاب <i class="fas fa-download"></i></button>
+        </div>
+      </div>
+
+      <!-- باقي الكتب بنفس الصيغة لو عايز أكملهم كلهم دلوقتي قول -->
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  ستاديكس التعليمية © 2025<br>
+  كل الكتب أصلية ومحدثة ومجانية 100% · لو عايز كتاب معين قولي وهجيبهولك فورًا
+</footer>
+
+</body>
+</html>
